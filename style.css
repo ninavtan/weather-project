@@ -1,0 +1,24 @@
+.page-header {
+  margin-top: 1em;
+}
+
+.form-row {
+  /* justify-content: center !important; */
+  align-items: center !important;
+}
+
+.search-form {
+  width: 100%;
+}
+
+input {
+  height: 60px !important;
+  border-radius: 4rem !important;
+  width: 100% !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+}
+
+.input-section {
+  margin-left: 2em !important;
+}
