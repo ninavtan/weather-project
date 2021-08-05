@@ -110,30 +110,34 @@ var addFiveDayWeather = function (data) {
   var average = 0;
 
   var getAverage = function (data) {
-  for (let i = 0; i <= data.list.length; i+=5) {
-    console.log(data.list[i].main.temp);
-    sum += data.list[i].main.temp;
-    console.log('the sum is now' + sum);
-    average = (sum/8);
+    for (let i = 0; i <= data.list.length; i+=5) {
+      console.log(data.list[i].main.temp);
+      sum += data.list[i].main.temp;
+      console.log('the sum is now' + sum);
+      average = (sum/8);
     console.log('the average is ' + average);
-    
+    fiveDayWeatherArray.push(average);
+    console.log(fiveDayWeatherArray);
     };
-    return average;
+    
   };
+
+  getAverage(data);
   
-  console.log(getAverage(data));
+  
+  
     
   // console.log(sum);
  
 
   var weather = {
-    temp:
+    
     
   };  
 
 
-  fiveDayWeatherArray.push(weather);
-  renderCurrentWeather();
+  // fiveDayWeatherArray.push(weather);
+  // renderCurrentWeather();
   };
 
   var fetchFiveDay = function (query) {
