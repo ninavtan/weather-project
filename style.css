@@ -9,6 +9,7 @@
 
 .search-form {
   width: 100%;
+  margin: auto;
 }
 
 input {
@@ -17,8 +18,29 @@ input {
   width: 100% !important;
   align-items: center !important;
   justify-content: flex-end !important;
+  margin: auto;
 }
 
 .input-section {
   margin-left: 2em !important;
+}
+
+.icon {
+  width: 35%;
+}
+
+.current-forecast {
+  margin-top: 1em;
+}
+
+.five-days {
+  border-style: solid;
+  height: 200px;
+  width: 350px !important;
+}
+
+.five-row {
+  margin: auto;
+  width: 60%;
+  text-align: center;
 }
