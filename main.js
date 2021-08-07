@@ -81,14 +81,6 @@ function kelvinToF (number) {
   return (number - 273.15) * 9/5 + 32;
 };
 
-
-
-
-
-//every 8 weather arrays is 1 day
-// take the average of every 8
-//mmk
-
 var fiveDayWeatherArray = [];
 
 var renderFiveDayWeather = function() {
@@ -103,42 +95,36 @@ var renderFiveDayWeather = function() {
   };
 };
 
-var addFiveDayWeather = function (data) {
+fiveDayWeatherArray = [];
   
-  fiveDayWeatherArray = [];
-  var sum = 0;
-  var average = 0;
 
-  var getAverage = function (data) {
-    for (let i = 0; i <= data.list.length; i+=5) {
-      console.log(data.list[i].main.temp);
-      sum += data.list[i].main.temp;
-      console.log('the sum is now' + sum);
-      average = (sum/8);
-    console.log('the average is ' + average);
-    fiveDayWeatherArray.push(average);
-    console.log(fiveDayWeatherArray);
-    };
-    
-  };
-
-  getAverage(data);
   
+  // for (let i = 0; i <= data.list.length; i+=5) {
+  //   console.log(data.list[i].main.temp);
+  //   sum += data.list[i].main.temp;
+    
+
+  // every 8 items is 1 day
+  // so take every 8 items, take the average, use the kelvinToF founc, and push it into fiveDayWeather[0].temp
+  // take the 8th item, and grab the main temp, and the icon
+
   
+  // object -> array of objects
+  // final product: overall weather of the day, weather temp of the day, icon, and day of the week
+  // objects w/in an object? or array of objects.
   
-    
-  // console.log(sum);
- 
+  // var fiveDayWeather = [
+  //   {
+  //     overallWeather: main weather of the day
+  //     day: take the Date, and convert it to the day it is
+  //     temp: number using kelvinToF function
+  //     icon: icon url
 
-  var weather = {
-    
-    
-  };  
+  //   },
+  // ]
 
+  // day 1 = fiveDayWeather[0].overallWeather
 
-  // fiveDayWeatherArray.push(weather);
-  // renderCurrentWeather();
-  };
 
   var fetchFiveDay = function (query) {
     $.ajax({
