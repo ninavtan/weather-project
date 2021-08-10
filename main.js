@@ -44,8 +44,6 @@ var addWeather = function (data) {
     icon: 'http://openweathermap.org/img/wn/' + data.weather[0].icon +'@2x.png'|| null
   };  
   currentWeatherArray.push(weather);
-
-    // currentWeatherArray.push(weather);
     renderCurrentWeather();
     
   };
@@ -65,6 +63,8 @@ var renderCurrentWeather = function() {
    
 
     $('.current-forecast').append(newHTML);
+
+    
   }
 };
 
@@ -86,43 +86,39 @@ function convertDate (date) {
   return day;
 }
 
-var fiveDayWeather = {
-
-  day1: {
+var fiveDayWeather = [
+  {
     mainWeather: null,
     day: null,
     temp: null,
     icon: null
   },
-
-  day2: {
+  {
     mainWeather: null,
     day: null,
     temp: null,
     icon: null
   },
-
-  day3: {
+  {
     mainWeather: null,
     day: null,
     temp: null,
     icon: null
   },
-
-  day4: {
+  {
     mainWeather: null,
     day: null,
     temp: null,
     icon: null
   },
-
-  day5: {
+  {
     mainWeather: null,
     day: null,
     temp: null,
     icon: null
-  },
-};
+  }
+];
+
 
 var addFiveDayWeather = {
 
@@ -133,41 +129,42 @@ var addFiveDayWeather = {
       day1Sum = data.list[i].main.temp + day1Sum;
       };
     day1Average = Math.floor(kelvinToF(day1Sum / 8));
-    fiveDayWeather.day1.temp = (day1Average);
+    fiveDayWeather[0].temp = (day1Average);
     
-    fiveDayWeather.day1.mainWeather = (data.list[7].weather[0].main);
-    fiveDayWeather.day1.icon = 'http://openweathermap.org/img/wn/' + data.list[7].weather[0].icon +'@2x.png';
-
-    fiveDayWeather.day1.day = convertDate(data.list[7].dt_txt);
-
-    console.log(data.list[7].dt_txt);
+    fiveDayWeather[0].mainWeather = (data.list[7].weather[0].main);
+    fiveDayWeather[0].icon = 'http://openweathermap.org/img/wn/' + data.list[7].weather[0].icon +'@2x.png';
+    fiveDayWeather[0].day = convertDate(data.list[7].dt_txt);
   },
 
   day2Average: function(data) {
     var day2Sum = 0;
     var day2Average = 0;
-    for (let i = 8; i <= 15; i++) {
+      for (let i = 8; i <= 15; i++) {
       day2Sum = data.list[i].main.temp + day2Sum;
       };
     day2Average = Math.floor(kelvinToF(day2Sum / 8));
-    fiveDayWeather.day2.temp = (day2Average);
+    fiveDayWeather[1].temp = (day2Average);
 
-    fiveDayWeather.day2.mainWeather = (data.list[15].weather[0].main);
-    fiveDayWeather.day2.icon = 'http://openweathermap.org/img/wn/' + data.list[15].weather[0].icon +'@2x.png';
+    fiveDayWeather[1].mainWeather = (data.list[15].weather[0].main);
+    fiveDayWeather[1].icon = 'http://openweathermap.org/img/wn/' + data.list[15].weather[0].icon +'@2x.png';
 
-    fiveDayWeather.day2.day = convertDate(data.list[15].dt_txt);
-
-    console.log(data.list[15].dt_txt);
+    fiveDayWeather[1].day = convertDate(data.list[15].dt_txt);
   },
 
   day3Average: function(data) {
     var day3Sum = 0;
     var day3Average = 0;
-    for (let i = 16; i <= 23; i++) {
+      for (let i = 16; i <= 23; i++) {
       day3Sum = data.list[i].main.temp + day3Sum;
-    };
-  day3Average = Math.floor(kelvinToF(day3Sum / 8));
-    fiveDayWeather.day3.temp = (day3Average);
+      };
+    day3Average = Math.floor(kelvinToF(day3Sum / 8));
+    fiveDayWeather[2].temp = (day3Average);
+
+    fiveDayWeather[2].mainWeather = (data.list[23].weather[0].main);
+    fiveDayWeather[2].icon = 'http://openweathermap.org/img/wn/' + data.list[23].weather[0].icon +'@2x.png';
+
+    fiveDayWeather[2].day = convertDate(data.list[23].dt_txt);
+
   },
 
   day4Average: function(data) {
@@ -177,7 +174,12 @@ var addFiveDayWeather = {
       day4Sum = data.list[i].main.temp + day4Sum;
     };
     day4Average = Math.floor(kelvinToF(day4Sum / 8));
-    fiveDayWeather.day4.temp = (day4Average);
+    fiveDayWeather[3].temp = (day4Average);
+
+    fiveDayWeather[3].mainWeather = (data.list[31].weather[0].main);
+    fiveDayWeather[3].icon = 'http://openweathermap.org/img/wn/' + data.list[31].weather[0].icon +'@2x.png';
+
+    fiveDayWeather[3].day = convertDate(data.list[31].dt_txt);
   },
 
   day5Average: function(data) {
@@ -187,57 +189,30 @@ var addFiveDayWeather = {
       day5Sum = data.list[i].main.temp + day5Sum;
     };
     day5Average = Math.floor(kelvinToF(day5Sum / 8));
-    fiveDayWeather.day5.temp = (day5Average);
+    fiveDayWeather[4].temp = (day5Average);
+
+    fiveDayWeather[4].mainWeather = (data.list[39].weather[0].main);
+    fiveDayWeather[4].icon = 'http://openweathermap.org/img/wn/' + data.list[39].weather[0].icon +'@2x.png';
+
+    fiveDayWeather[4].day = convertDate(data.list[39].dt_txt);
     console.log(fiveDayWeather);
   },
-
-  pookie: function() {
-    var fiveDayWeather = {
-      temp1: null,
-    }
-  },
-  
-  // renderFiveDayWeather();
-
 };
 
 
-// i am not going to really care too much how you do this. 
-// whether you go every 8 and grab the average or go to 8 and grab the last 8
-
-  // every 8 items is 1 day
-  // so take every 8 items, take the average, use the kelvinToF founc, and push it into fiveDayWeather[0].temp
-  // take the 8th item, and grab the main temp, and the icon
-
+var renderFiveDayWeather = function() {
+  $('.five-day-forecast').empty();
   
-  // object -> array of objects
-  // final product: overall weather of the day, weather temp of the day, icon, and day of the week
-  // objects w/in an object? or array of objects.
-  
-  // var fiveDayWeather = [
-  //   {
-  //     overallWeather: main weather of the day
-  //     day: take the Date, and convert it to the day it is
-  //     temp: number using kelvinToF function
-  //     icon: icon url
-
-  //   },
-  // ]
-
-  // day 1 = fiveDayWeather[0].overallWeather
-
-  var renderFiveDayWeather = function() {
-    $('.five-day-forecast').empty();
-  
-      const fiveDayWeatherObj = fiveDayWeather;
-  
-      var source = $('#current-weather-template').html();
+    for (let i = 0; i < fiveDayWeather.length; i++) {
+      var source = $('#five-day-weather-template').html();
       var template = Handlebars.compile(source);
-      var newHTML = template(fiveDayWeatherObj);
-    
-  };
+      var newHTML = template(fiveDayWeather[i]);
+      $('.five-day-forecast').append(newHTML);
+    }
+};
+
   
-  renderFiveDayWeather();
+  
 
   var fetchFiveDay = function (query) {
     $.ajax({
@@ -250,12 +225,9 @@ var addFiveDayWeather = {
         addFiveDayWeather.day2Average(data);
         addFiveDayWeather.day3Average(data);
         addFiveDayWeather.day4Average(data);
-        addFiveDayWeather.day5Average(data);
-        // addFiveDayWeather.renderFiveDayWeather();
-        
+        addFiveDayWeather.day5Average(data);    
+        renderFiveDayWeather();    
 
-        
-        // $loadingSpinner.css("display", "none");
       },
       error: function (jqXHR, textStatus, errorThrown) {
         debugger;
