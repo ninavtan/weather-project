@@ -1,10 +1,3 @@
-// api key: 5e5a03c24f89b112d6b16ccfccf14576
-// https://api.openweathermap.org/data/2.5/weather?q=Denver&appid=41b972937f256a72881f193699a320a4
-
-// 5 day forecast
-// api.openweathermap.org/data/2.5/forecast?q=Denver&appid=41b972937f256a72881f193699a320a4
-
-
 var currentWeatherArray = [];
 
 var fetch = function (query) {
@@ -15,8 +8,7 @@ var fetch = function (query) {
     success: function (data) {
       
       addWeather(data);
-      
-      // $loadingSpinner.css("display", "none");
+
     },
     error: function (jqXHR, textStatus, errorThrown) {
       debugger;
@@ -24,6 +16,7 @@ var fetch = function (query) {
     }
   });
 };
+
 
 $('.search').on('click', function () {
   var search = $('#search-query').val();
@@ -48,9 +41,7 @@ var addWeather = function (data) {
     
   };
 
-  
 
-  
 var renderCurrentWeather = function() {
   $('.current-forecast').empty();
 
@@ -68,12 +59,14 @@ var renderCurrentWeather = function() {
   }
 };
 
+
 renderCurrentWeather();
 
 
 function kelvinToF (number) {
   return (number - 273.15) * 9/5 + 32;
 };
+
 
 function convertDate (date) {
 
@@ -85,6 +78,7 @@ function convertDate (date) {
   var day = (daysOfTheWeek[dayToNumber]);
   return day;
 }
+
 
 var fiveDayWeather = [
   {
@@ -129,7 +123,7 @@ var addFiveDayWeather = {
       day1Sum = data.list[i].main.temp + day1Sum;
       };
     day1Average = Math.floor(kelvinToF(day1Sum / 8));
-    fiveDayWeather[0].temp = (day1Average);
+    fiveDayWeather[0].temp = (day1Average + '°');
     
     fiveDayWeather[0].mainWeather = (data.list[7].weather[0].main);
     fiveDayWeather[0].icon = 'http://openweathermap.org/img/wn/' + data.list[7].weather[0].icon +'@2x.png';
@@ -143,7 +137,7 @@ var addFiveDayWeather = {
       day2Sum = data.list[i].main.temp + day2Sum;
       };
     day2Average = Math.floor(kelvinToF(day2Sum / 8));
-    fiveDayWeather[1].temp = (day2Average);
+    fiveDayWeather[1].temp = (day2Average  + '°');
 
     fiveDayWeather[1].mainWeather = (data.list[15].weather[0].main);
     fiveDayWeather[1].icon = 'http://openweathermap.org/img/wn/' + data.list[15].weather[0].icon +'@2x.png';
@@ -158,7 +152,7 @@ var addFiveDayWeather = {
       day3Sum = data.list[i].main.temp + day3Sum;
       };
     day3Average = Math.floor(kelvinToF(day3Sum / 8));
-    fiveDayWeather[2].temp = (day3Average);
+    fiveDayWeather[2].temp = (day3Average  + '°');
 
     fiveDayWeather[2].mainWeather = (data.list[23].weather[0].main);
     fiveDayWeather[2].icon = 'http://openweathermap.org/img/wn/' + data.list[23].weather[0].icon +'@2x.png';
@@ -174,7 +168,7 @@ var addFiveDayWeather = {
       day4Sum = data.list[i].main.temp + day4Sum;
     };
     day4Average = Math.floor(kelvinToF(day4Sum / 8));
-    fiveDayWeather[3].temp = (day4Average);
+    fiveDayWeather[3].temp = (day4Average  + '°');
 
     fiveDayWeather[3].mainWeather = (data.list[31].weather[0].main);
     fiveDayWeather[3].icon = 'http://openweathermap.org/img/wn/' + data.list[31].weather[0].icon +'@2x.png';
@@ -189,7 +183,7 @@ var addFiveDayWeather = {
       day5Sum = data.list[i].main.temp + day5Sum;
     };
     day5Average = Math.floor(kelvinToF(day5Sum / 8));
-    fiveDayWeather[4].temp = (day5Average);
+    fiveDayWeather[4].temp = (day5Average + '°');
 
     fiveDayWeather[4].mainWeather = (data.list[39].weather[0].main);
     fiveDayWeather[4].icon = 'http://openweathermap.org/img/wn/' + data.list[39].weather[0].icon +'@2x.png';
@@ -211,8 +205,6 @@ var renderFiveDayWeather = function() {
     }
 };
 
-  
-  
 
   var fetchFiveDay = function (query) {
     $.ajax({

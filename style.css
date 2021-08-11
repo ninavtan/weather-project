@@ -3,7 +3,6 @@
 }
 
 .form-row {
-  /* justify-content: center !important; */
   align-items: center !important;
 }
 
@@ -26,7 +25,7 @@ input {
 }
 
 .icon {
-  width: 35%;
+  width: 25%;
 }
 
 .current-forecast {
@@ -36,17 +35,14 @@ input {
 .five-days {
   border-style: solid;
   text-align: center;
-  flex-direction: row;
-  margin: auto;
-  /* height: 200px;
-  width: 350px !important; */
-}
-
-.five-day-row {
-  flex-direction: row;
-  justify-content: center;
+  padding: 1em;
+  margin: 1em;
+  
 }
 
 .five-day-forecast {
-  flex-direction: row;
+  text-align: center;
+  margin: auto;
+  justify-content: center;
+
 }
